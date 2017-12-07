@@ -16,7 +16,7 @@ export default class Parse {
   static createCompanyObjects(columns, companyData){
     var compObj = {};
     compObj[columns[0]] = parseInt(companyData[0]);
-    compObj[columns[1]] = parseFloat(companyData[1]);
+    compObj.fractal_index = parseFloat(companyData[1]);
     return compObj;
   }
 
@@ -47,8 +47,13 @@ export default class Parse {
     // debugger
     var engineerObj = new Object;
     for (var i = 0; i < columns.length; i++) {
-      if (typeof engineer[i] !== 'string'){
-        engineerObj[columns[i]] = parseInt(engineer[i]);
+      // debugger
+      if (!isNaN(parseInt(engineer[i]))){
+        if (i === 4) {
+          engineerObj.company_id = parseInt(engineer[i])
+        } else {
+          engineerObj[columns[i]] = parseInt(engineer[i]);
+        }
       } else {
         engineerObj[columns[i]] = engineer[i];
       }
