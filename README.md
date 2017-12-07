@@ -4,6 +4,4 @@ Given your engineer ID, we can tell you what percentile you are in for your comm
 
 To run this application, fork or clone the repo.
   1. Start up the Node server: CD into /app and then run: node server.js this will start your server on port 8000
-  2. Start react by simple running yarn start from the main directory.
-
-  
+  2. Start react by simple running npm start from the main directory.
