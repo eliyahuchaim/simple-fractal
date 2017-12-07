@@ -1,6 +1,6 @@
 const express = require('express');
 const port = 8000;
-
+var cors = require('cors');
 const app = express();
 
 
@@ -18,6 +18,8 @@ const app = express();
 // }
 
 // app.get('/', (req, res) => res.send(requestF()))
+
+app.use(cors())
 
 require('./routes')(app);
 
