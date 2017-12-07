@@ -2,8 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      companies: [],
+      engineers: [],
+    }
+  }
+
+  componentDidMount(){
+    this.props.parseEngineers().then(resp => this.setState({engineers: resp }));
+    this.props.parseCompany().then(resp => this.setState({companies: resp }))
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div className="App">
         <header className="App-header">
